@@ -141,7 +141,7 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                     </Border>
                                 </Grid>
                             </Border>
-                            
+
                             <!--button-->
                             <Border  Grid.Row="7" Margin="0,20,0,0">
                                 <Grid>
@@ -176,12 +176,17 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </Border>
                     <Border Grid.Column="1">
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="247*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="669*"/>
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <!--search-->
-                            <Border Grid.Row="0">
+                            <Border Grid.Row="0" Grid.ColumnSpan="3">
                                 <StackPanel Height="30" Width="310"
                                             Orientation="Horizontal" HorizontalAlignment="Right"
                                             Margin="0,0,5,0">
@@ -227,9 +232,13 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                     </Border>
                                 </StackPanel>
                             </Border>
-                            <Border Grid.Row="1">
+                            <Border Grid.Row="1" Grid.ColumnSpan="3">
                                 <Grid>
-                                    <DataGrid x:Name="dssv" AutoGenerateColumns="True" IsReadOnly="False" />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="355*"/>
+                                        <ColumnDefinition Width="589*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <DataGrid x:Name="dssv" AutoGenerateColumns="True" IsReadOnly="False" Grid.ColumnSpan="2" />
                                 </Grid>
                             </Border>
                         </Grid>
@@ -278,7 +287,8 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                             FontWeight="Bold"
                                             FontSize="14"/>
                                     <!--btn luu thay doi-->
-                                    <Button Content="Lưu thay đổi" VerticalAlignment="Top"
+                                    <Button Click="saveDSDRL"
+                                        Content="Lưu thay đổi" VerticalAlignment="Top"
                                             Margin="30,20,0,0"
                                             Width="150" Height="30"
                                             FontWeight="Bold"
@@ -322,7 +332,7 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="300"/>
                         <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
                     <Border Grid.Column="0"  BorderBrush="LightGray" BorderThickness="0,0,2,0">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -330,12 +340,14 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Border Grid.Row="0">
-                                <ListView HorizontalAlignment="Stretch"
+                                <ListView x:Name="dslopmini" SelectionChanged="selectionlopmini"
+                                    HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch"
                                           Width="250" Margin="0,10,0,0">
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Lop}"/>
+                                            <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Tenlop}"/>
+                                            <GridViewColumn Header="Lớp" Width="0"  DisplayMemberBinding="{Binding Malop}"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
@@ -346,25 +358,14 @@ VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 <Button Content="Sửa" Height="30" Width="150"
                                         FontSize="14"  FontWeight="Bold" Margin="0,10,0,0"/>
                                 <Button Content="Xóa" Height="30" Width="150"
-                                        FontSize="14"  FontWeight="Bold" Margin="0,10,0,0"/>            
+                                        FontSize="14"  FontWeight="Bold" Margin="0,10,0,0"/>
                             </StackPanel>
                         </Grid>
                     </Border>
                     <Border Grid.Column="1">
-                        <ListView HorizontalAlignment="Stretch"
-                                  VerticalAlignment="Stretch"
-                                  Margin="0,10,0,0">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Lop}"/>
-                                    <GridViewColumn Header="MaSV" Width="Auto"  DisplayMemberBinding="{Binding MaSV}"/>
-                                    <GridViewColumn Header="Tên sinh viên" Width="Auto"  DisplayMemberBinding="{Binding TenSV}"/>
-                                    <GridViewColumn Header="Ngày sinh" Width="Auto"  DisplayMemberBinding="{Binding Date}"/>
-                                    <GridViewColumn Header="Giới tính" Width="Auto"  DisplayMemberBinding="{Binding GioiTinh}"/>
-                                    <GridViewColumn Header="Người giám hộ" Width="Auto"  DisplayMemberBinding="{Binding NguoiGiamHO}"/>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+                        <Grid>
+                            <DataGrid x:Name="dslop" AutoGenerateColumns="True" IsReadOnly="False" />
+                        </Grid>
                     </Border>
                 </Grid>
             </TabItem>

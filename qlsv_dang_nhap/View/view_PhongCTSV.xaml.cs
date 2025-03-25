@@ -12,14 +12,17 @@ namespace qlsv_dang_nhap.View
     {
         private SinhvienBLL sinhvien = new SinhvienBLL();
         private DRLBLL drl = new DRLBLL();
+        private LopBLL lop = new LopBLL();
         DataTable dtdssv;
         DataTable dtdrl;
+        DataTable dtlop;
+        DataTable dtlopmini;
         public view_PhongCTSV()
         {
             InitializeComponent();
             LoadSinhvien();
             LoadSinhvienMini();
-
+            LoadLop();
         }
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -74,7 +77,11 @@ namespace qlsv_dang_nhap.View
             if (selected == null) return;
             try
             {
-                txtMasv.Text = selected["MaSV"].ToString();
+                if (selected["MaSV"] != DBNull.Value) // Kiểm tra giá trị không phải NULL
+                {
+                    txtMasv.Text = selected["MaSV"].ToString();
+                    LoadDRL(); // Chỉ gọi LoadDRL() khi có giá trị hợp lệ
+                }
             }
             catch (Exception ex)
             {
@@ -88,6 +95,37 @@ namespace qlsv_dang_nhap.View
             int id = Convert.ToInt32(txtMasv.Text);
             dtdrl = drl.getDRL(id);
             drlsv.ItemsSource = dtdrl.DefaultView;
+        }
+
+        private void saveDSDRL(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                drl.
+            }
+        }
+        #endregion
+        #region LOP
+        private void LoadLop()
+        {
+            dtlopmini = lop.getLop();
+            dslopmini.ItemsSource = dtlopmini.DefaultView;
+        }
+        int malop;
+        void selectionlopmini(object sender, SelectionChangedEventArgs e )
+        {
+            var selected = dslopmini.SelectedItem as DataRowView;
+            if (selected == null) return;
+            try
+            {
+                malop = int.Parse(selected["Malop"].ToString());
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn lớp: "+ex.Message);
+            }
+            var dv = new DataView(dtdssv);
+            dv.RowFilter = $"Malop = {malop}";
+            dslop.ItemsSource = dv;
         }
         #endregion
     }

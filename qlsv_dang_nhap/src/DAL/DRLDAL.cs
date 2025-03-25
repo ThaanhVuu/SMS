@@ -13,7 +13,7 @@ public class DRLDAL
         {
             var dt = new DataTable();
             conn.Open();
-            var adapter = new SQLiteDataAdapter($"select drl.MaHDNK, hd.TenHDNK, drl.DRL from DiemRL drl join Sinhvien sv on drl.MaSv = sv.MaSV join HoatDongNK hd on drl.MaHDNK = hd.Ma_HDNK where id = {id}",conn);
+            var adapter = new SQLiteDataAdapter($"select drl.MaHDNK, hd.TenHDNK, drl.DRL from DiemRL drl join Sinhvien sv on drl.MaSv = sv.MaSV join HoatDongNK hd on drl.MaHDNK = hd.Ma_HDNK where sv.MaSV = {id}",conn);
             adapter.Fill(dt);
             return dt;
         }

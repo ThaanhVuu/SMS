@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="userControl\dkControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userControl\hscnn_Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userControl\kqhtControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userControl\MH_control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userControl\Trang_chinh_Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Dang_nhap_view.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Doimatkhau.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\viewTrang_chinh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\view_Giaovien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\view_PhongCTSV.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="userControl\dkControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControl\hscnn_Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControl\kqhtControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControl\MH_control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControl\Trang_chinh_Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Dang_nhap_view.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Doimatkhau.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\viewTrang_chinh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\view_Giaovien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\view_PhongCTSV.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

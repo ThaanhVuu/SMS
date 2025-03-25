@@ -11,7 +11,7 @@ public class SinhvienDAL
         {
             conn.Open();
             var dt = new DataTable();
-            var adapter = new SQLiteDataAdapter("select * from sinhvien", conn);
+            var adapter = new SQLiteDataAdapter("select sv.*, l.Tenlop, l.CTDT from sinhvien sv join Lop l on sv.Malop = l.Malop", conn);
             adapter.Fill(dt);
             return dt;
         }

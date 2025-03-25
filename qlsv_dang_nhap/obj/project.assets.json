@@ -1543,11 +1543,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thanh\\OneDrive\\Máy tính\\Demo\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
+      "projectUniqueName": "C:\\Users\\thanh\\OneDrive\\Máy tính\\SMS\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
       "projectName": "qlsv_dang_nhap",
-      "projectPath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\Demo\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
+      "projectPath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\SMS\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
       "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\Demo\\qlsv_dang_nhap\\obj\\",
+      "outputPath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\SMS\\qlsv_dang_nhap\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Environment\\NuGetPackages"

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace qlsv_dang_nhap.View
 {
@@ -21,11 +11,15 @@ namespace qlsv_dang_nhap.View
     public partial class view_PhongCTSV : Window
     {
         private SinhvienBLL sinhvien = new SinhvienBLL();
+        private DRLBLL drl = new DRLBLL();
         DataTable dtdssv;
+        DataTable dtdrl;
         public view_PhongCTSV()
         {
             InitializeComponent();
             LoadSinhvien();
+            LoadSinhvienMini();
+
         }
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -66,6 +60,34 @@ namespace qlsv_dang_nhap.View
         {
             sinhvien.savechange(dtdssv);
             MessageBox.Show("Cập nhật dữ liệu thành công");
+            LoadSinhvien();
+        }
+        #endregion
+        #region QLDRL
+        private void LoadSinhvienMini()
+        {
+            dssvmini.ItemsSource = dtdssv.DefaultView;
+        }
+        private void selectionDSSVMini(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = dssvmini.SelectedItem as DataRowView;
+            if (selected == null) return;
+            try
+            {
+                txtMasv.Text = selected["MaSV"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("loi khi chon sinh vien" + ex.Message);
+            }
+            LoadDRL();
+        }
+
+        private void LoadDRL()
+        {
+            int id = Convert.ToInt32(txtMasv.Text);
+            dtdrl = drl.getDRL(id);
+            drlsv.ItemsSource = dtdrl.DefaultView;
         }
         #endregion
     }

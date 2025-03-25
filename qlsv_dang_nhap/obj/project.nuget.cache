@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ltOQyAMAeTI=",
+  "dgSpecHash": "inRR4AI2C7Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\Demo\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
+  "projectFilePath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\SMS\\qlsv_dang_nhap\\qlsv_dang_nhap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thanh\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

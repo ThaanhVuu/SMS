@@ -9,13 +9,23 @@ public class DRLDAL
 
     public DataTable getDRLSV(int id)
     {
-        using(var conn = new SQLiteConnection(connectionString))
+        using (var conn = new SQLiteConnection(connectionString))
         {
             var dt = new DataTable();
             conn.Open();
-            var adapter = new SQLiteDataAdapter($"select drl.MaHDNK, hd.TenHDNK, drl.DRL from DiemRL drl join Sinhvien sv on drl.MaSv = sv.MaSV join HoatDongNK hd on drl.MaHDNK = hd.Ma_HDNK where id = {id}",conn);
+            var adapter = new SQLiteDataAdapter($"select drl.MaSV, drl.MaHDNK, hdnk.TenHDNK, drl.DRL from DiemRL drl join Sinhvien sv on sv.MaSV = drl.MaSV join HoatDongNK hdnk on hdnk.Ma_HDNK = drl.MaHDNK where sv.MaSV = {id}", conn);
             adapter.Fill(dt);
             return dt;
+        }
+    }
+    public void saveChange(DataTable dt)
+    {
+        using (var conn = new SQLiteConnection(connectionString))
+        {
+            conn.Open();
+            var adapter = new SQLiteDataAdapter("SELECT * FROM DiemRL", conn);
+            var builder = new SQLiteCommandBuilder(adapter); 
+            adapter.Update(dt);
         }
     }
 }

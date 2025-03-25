@@ -19,7 +19,7 @@ namespace qlsv_dang_nhap.View
             InitializeComponent();
             LoadSinhvien();
             LoadSinhvienMini();
-
+        
         }
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -75,19 +75,34 @@ namespace qlsv_dang_nhap.View
             try
             {
                 txtMasv.Text = selected["MaSV"].ToString();
+                LoadDRL();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("loi khi chon sinh vien" + ex.Message);
+                MessageBox.Show("loi khi chon sinh vien: " + ex.Message);
             }
-            LoadDRL();
         }
 
         private void LoadDRL()
         {
-            int id = Convert.ToInt32(txtMasv.Text);
-            dtdrl = drl.getDRL(id);
-            drlsv.ItemsSource = dtdrl.DefaultView;
+            int id = int.Parse(txtMasv.Text);
+            if(id > 0)
+            {
+                dtdrl = drl.getDRL(id);
+                drlsv.ItemsSource = dtdrl.DefaultView;
+            }
+        }
+
+        private void drlsave(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                drl.saveDRL(dtdrl);
+                MessageBox.Show("Cập nhật hoạt động ngoại khóa cho sinh viên thành công");
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật hoạt động ngoại khóa cho sinh viên: "+ex.Message);
+            }
         }
         #endregion
     }

@@ -12,4 +12,9 @@ public class SinhvienBLL
     {
         dal.saveChange(dt);
     }
+
+    public DataTable searchSV(string key)
+    {
+        return dal.SearchSinhvien(key);
+    }
 }

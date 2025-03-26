@@ -44,14 +44,14 @@ namespace qlsv_dang_nhap.View
         {
             if (e.Key == Key.Enter)
             {
-                btnSearchIcon_Click(sender, new RoutedEventArgs());
+                btnSearchIcon_Click(sender, e);
             }
         }
         #endregion
         #region Sinhvien
         private void LoadSinhvien()
         {
-            dtdssv = sinhvien.getSinhvien();
+            dtdssv = sinhvien.searchSV(txtSearch.Text);
             dssv.ItemsSource = dtdssv.DefaultView;
         }
 
@@ -63,8 +63,9 @@ namespace qlsv_dang_nhap.View
         }
         private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
         {
-            
+            LoadSinhvien();
         }
+
         #endregion
         #region QLDRL
         private void LoadSinhvienMini()
@@ -104,9 +105,10 @@ namespace qlsv_dang_nhap.View
                 drl.saveChange(dtdrl);
                 MessageBox.Show("Cập nhật điểm rèn luyện thành công");
                 LoadDRL();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi cập nhật điểm rèn luyện: "+ex.Message);
+                MessageBox.Show("Lỗi khi cập nhật điểm rèn luyện: " + ex.Message);
             }
         }
         #endregion
@@ -117,16 +119,17 @@ namespace qlsv_dang_nhap.View
             dslopmini.ItemsSource = dtlopmini.DefaultView;
         }
         int malop;
-        void selectionlopmini(object sender, SelectionChangedEventArgs e )
+        void selectionlopmini(object sender, SelectionChangedEventArgs e)
         {
             var selected = dslopmini.SelectedItem as DataRowView;
             if (selected == null) return;
             try
             {
                 malop = int.Parse(selected["Malop"].ToString());
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi chọn lớp: "+ex.Message);
+                MessageBox.Show("Lỗi khi chọn lớp: " + ex.Message);
             }
             var dv = new DataView(dtdssv);
             dv.RowFilter = $"Malop = {malop}";
@@ -141,9 +144,9 @@ namespace qlsv_dang_nhap.View
                 MessageBox.Show("Cập nhật lớp cho sinh viên thành công");
                 LoadLop();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Cập nhật lớp cho sinh viên thất bại: " +  ex.Message);
+                MessageBox.Show("Cập nhật lớp cho sinh viên thất bại: " + ex.Message);
             }
         }
         #endregion

@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\view\\view_phongctsv.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\bll\\lopbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\src\\bll\\lopbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\dal\\drldal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\src\\dal\\drldal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\bll\\lopbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\src\\bll\\lopbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\dal\\lopdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "view_PhongCTSV.xaml",
               "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
               "RelativeDocumentMoniker": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
@@ -53,7 +49,7 @@
               "RelativeDocumentMoniker": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
               "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
               "RelativeToolTip": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAADwv1UAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T10:24:32.244Z",
               "IsPinned": true,
@@ -62,41 +58,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DRLDAL.cs",
-              "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\DRLDAL.cs",
-              "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\DAL\\DRLDAL.cs",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\DRLDAL.cs",
-              "RelativeToolTip": "qlsv_dang_nhap\\src\\DAL\\DRLDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:45:35.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LopDAL.cs",
-              "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
-              "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
-              "RelativeToolTip": "qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAiwBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:29:18.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "LopBLL.cs",
               "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\BLL\\LopBLL.cs",
               "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\BLL\\LopBLL.cs",
               "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\BLL\\LopBLL.cs",
               "RelativeToolTip": "qlsv_dang_nhap\\src\\BLL\\LopBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T16:59:00.11Z",
+              "WhenOpened": "2025-03-26T02:13:50.901Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LopDAL.cs",
+              "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
+              "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
+              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
+              "RelativeToolTip": "qlsv_dang_nhap\\src\\DAL\\LopDAL.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:13:24.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",

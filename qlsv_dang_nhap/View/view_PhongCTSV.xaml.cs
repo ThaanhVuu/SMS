@@ -15,7 +15,6 @@ namespace qlsv_dang_nhap.View
         private LopBLL lop = new LopBLL();
         DataTable dtdssv;
         DataTable dtdrl;
-        DataTable dtlop;
         DataTable dtlopmini;
         public view_PhongCTSV()
         {
@@ -24,6 +23,7 @@ namespace qlsv_dang_nhap.View
             LoadSinhvienMini();
             LoadLop();
         }
+
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -39,10 +39,6 @@ namespace qlsv_dang_nhap.View
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtPlaceholder.Visibility = string.IsNullOrEmpty(txtSearch.Text) ? Visibility.Visible : Visibility.Collapsed;
-        }
-        private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Chức năng tìm kiếm chưa được triển khai.");
         }
         private void SearchEnter(object sender, KeyEventArgs e)
         {
@@ -64,6 +60,10 @@ namespace qlsv_dang_nhap.View
             sinhvien.savechange(dtdssv);
             MessageBox.Show("Cập nhật dữ liệu thành công");
             LoadSinhvien();
+        }
+        private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         #endregion
         #region QLDRL
@@ -101,7 +101,12 @@ namespace qlsv_dang_nhap.View
         {
             try
             {
-                drl.
+                drl.saveChange(dtdrl);
+                MessageBox.Show("Cập nhật điểm rèn luyện thành công");
+                LoadDRL();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật điểm rèn luyện: "+ex.Message);
             }
         }
         #endregion
@@ -126,6 +131,20 @@ namespace qlsv_dang_nhap.View
             var dv = new DataView(dtdssv);
             dv.RowFilter = $"Malop = {malop}";
             dslop.ItemsSource = dv;
+            //khi chọn lớp, lấy mã lớp và lọc dữ liệu danh sách sinh viên theo mã lớp
+        }
+        void capnhatlop(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                sinhvien.savechange(dtdssv);
+                MessageBox.Show("Cập nhật lớp cho sinh viên thành công");
+                LoadLop();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Cập nhật lớp cho sinh viên thất bại: " +  ex.Message);
+            }
         }
         #endregion
     }

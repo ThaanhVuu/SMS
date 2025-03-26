@@ -100,10 +100,19 @@ namespace qlsv_dang_nhap.View
                 case "0":
                     new view_Admin().Show();
                     break;
+                case "Admin":
+                    new view_Admin().Show();
+                    break;
                 case "1":
                     new view_PhongCTSV().Show();
                     break;
+                case "Phòng CTSV":
+                    new view_PhongCTSV().Show();
+                    break;
                 case "2":
+                    new view_Giaovien().Show();
+                    break;
+                case "Giảng viên":
                     new view_Giaovien().Show();
                     break;
                 case "3":

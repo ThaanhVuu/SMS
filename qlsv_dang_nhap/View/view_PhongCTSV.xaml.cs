@@ -13,17 +13,20 @@ namespace qlsv_dang_nhap.View
         private SinhvienBLL sinhvien = new SinhvienBLL();
         private DRLBLL drl = new DRLBLL();
         private LopBLL lop = new LopBLL();
+        private HDNKBLL hdnk = new HDNKBLL();
         DataTable dtdssv;
         DataTable dtdrl;
         DataTable dtlopmini;
+        DataTable dthdnk;
+
         public view_PhongCTSV()
         {
             InitializeComponent();
             LoadSinhvien();
             LoadSinhvienMini();
             LoadLop();
+            LoadHdnk();
         }
-
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -148,6 +151,19 @@ namespace qlsv_dang_nhap.View
             {
                 MessageBox.Show("Cập nhật lớp cho sinh viên thất bại: " + ex.Message);
             }
+        }
+        #endregion
+        #region hdnk
+        void LoadHdnk()
+        {
+            dthdnk = hdnk.getHDNK();
+            dshdnk.ItemsSource = dthdnk.DefaultView;
+        }
+        void hdnkUpdate(object sender, RoutedEventArgs e)
+        {
+            hdnk.setHDNK(dthdnk);
+            LoadHdnk();
+            MessageBox.Show("Cập nhật hoạt động ngoại khóa thành công");
         }
         #endregion
     }

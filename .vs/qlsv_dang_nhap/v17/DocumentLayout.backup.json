@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\view\\view_phongctsv.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\view\\view_phongctsv.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\bll\\sinhvienbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\src\\bll\\sinhvienbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\src\\dal\\sinhviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\src\\dal\\sinhviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|c:\\users\\thanh\\onedrive\\m\u00E1y t\u00EDnh\\sms\\qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D6D725C1-F0BB-431D-84D6-419101F8CC51}|qlsv_dang_nhap\\qlsv_dang_nhap.csproj|solutionrelative:qlsv_dang_nhap\\view\\view_phongctsv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 331,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "view_PhongCTSV.xaml.cs",
               "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
               "RelativeDocumentMoniker": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
-              "RelativeToolTip": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAuwC4AAAAnAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs*",
+              "RelativeToolTip": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml.cs*",
+              "ViewState": "AgIAAEIAAAAAwKdVGQvSv6QAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T10:24:32.244Z",
               "IsPinned": true,
@@ -44,40 +36,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "view_PhongCTSV.xaml",
               "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
               "RelativeDocumentMoniker": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml*",
-              "RelativeToolTip": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml*",
+              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
+              "RelativeToolTip": "qlsv_dang_nhap\\View\\view_PhongCTSV.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-26T02:54:54.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SinhvienBLL.cs",
-              "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\BLL\\SinhvienBLL.cs",
-              "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\BLL\\SinhvienBLL.cs",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\BLL\\SinhvienBLL.cs",
-              "RelativeToolTip": "qlsv_dang_nhap\\src\\BLL\\SinhvienBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T02:49:11.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SinhvienDAL.cs",
-              "DocumentMoniker": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\SinhvienDAL.cs",
-              "RelativeDocumentMoniker": "qlsv_dang_nhap\\src\\DAL\\SinhvienDAL.cs",
-              "ToolTip": "C:\\Users\\thanh\\OneDrive\\M\u00E1y t\u00EDnh\\SMS\\qlsv_dang_nhap\\src\\DAL\\SinhvienDAL.cs",
-              "RelativeToolTip": "qlsv_dang_nhap\\src\\DAL\\SinhvienDAL.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T02:48:57.077Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {

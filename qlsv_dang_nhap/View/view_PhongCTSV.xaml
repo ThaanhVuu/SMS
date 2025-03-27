@@ -316,6 +316,41 @@
                     </Border>
                 </Grid>
             </TabItem>
+            <TabItem Margin="-2,-2,-2,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/icon_admin/icons8-elective-64.png" Width="16" Height="16"/>
+                        <TextBlock Text="Quản lý hoạt động ngoại khóa" FontSize="16" FontFamily="Arial" FontWeight="Bold"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"  BorderBrush="LightGray" BorderThickness="0,0,2,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0"/>
+                            <StackPanel Grid.Row="1">
+                                <Button x:Name="capnhathdnk" Click="hdnkUpdate"
+                                  
+                                    Content=
+                                        "Cập nhật Hoạt động ngoại khóa" Height="30" Width="220"
+                                    FontSize="14"  FontWeight="Bold" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <Grid>
+                            <DataGrid x:Name="dshdnk" AutoGenerateColumns="True" IsReadOnly="False" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

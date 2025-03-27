@@ -17,7 +17,7 @@ public class DRLBLL
 
     public void saveDRL(DataTable dt)
     {
-        dal.saveChange(dt);
+        dal.savechange(dt);
     }
 }
 

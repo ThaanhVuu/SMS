@@ -82,3 +82,5 @@ C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\r
 C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\qlsv_dang_nhap.pdb
 C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\qlsv_dang_nhap.genruntimeconfig.cache
 C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\ref\qlsv_dang_nhap.dll
+C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\userControl\Drl_Control.g.cs
+C:\Users\thanh\OneDrive\Máy tính\SMS\qlsv_dang_nhap\obj\Debug\net8.0-windows\userControl\Drl_Control.baml

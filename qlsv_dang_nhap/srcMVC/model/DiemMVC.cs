@@ -9,7 +9,6 @@
         //public string KyHieu { get; set; }
         public string TenHocPhan { get; set; }
         public int SoTinChi { get; set; }
-        public double HeSo { get; set; } = 1.0;
         public double DiemThanhPhan { get; set; }
         public double DiemThi { get; set; }
         public double DiemTongKet { get; set; }

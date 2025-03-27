@@ -54,4 +54,15 @@ public class SinhvienDAL
         }
     }
 
+    public DataTable getSinhvienbyLopMonHoc(int malop, int mahp)
+    {
+        var dt = new DataTable();
+        using (var conn = new SQLiteConnection(connectionString))
+        {
+            var adapter = new SQLiteDataAdapter($"select sv.MaSV, sv.Hoten, mh.TenHP, d.DiemQT, d.DiemThi from sinhvien sv \r\njoin lop l on l.Malop = sv.Malop\r\njoin diem d on d.MaSV = sv.MaSV\r\njoin monhoc mh on mh.MaHP = d.MaHP\r\nwhere l.Malop = {malop} and mh.MaHP = {mahp};", conn);
+            adapter.Fill(dt);
+            return dt ;
+        }        
+    }
+
 }

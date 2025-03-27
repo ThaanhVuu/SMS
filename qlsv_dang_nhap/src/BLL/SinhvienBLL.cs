@@ -17,4 +17,17 @@ public class SinhvienBLL
     {
         return dal.SearchSinhvien(key);
     }
+
+    public DataTable getSinhvienByMalopByMaMH(int malop, int mamh)
+    {
+        try
+        {
+            return dal.getSinhvienbyLopMonHoc(malop, mamh);            
+        }
+        catch
+        {
+            return null;
+            throw new Exception();
+        }
+    }
 }

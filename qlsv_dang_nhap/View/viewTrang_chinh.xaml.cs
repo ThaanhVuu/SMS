@@ -207,9 +207,18 @@ namespace qlsv_dang_nhap.View
         {
             ContentDisplay.Content = new qlsv_dang_nhap.userControl.MH_control();
         }
+        private void drl_click(object sender, RoutedEventArgs e)
+        {
+            ContentDisplay.Content = new qlsv_dang_nhap.userControl.Drl_Control();
+        }
         private void thoat_click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

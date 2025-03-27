@@ -10,6 +10,9 @@
     <Compile Update="userControl\dkControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="userControl\Drl_Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="userControl\hscnn_Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

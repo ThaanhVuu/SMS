@@ -38,7 +38,6 @@
                                 <ComboBoxItem Content="Admin" FontSize="14"/>
                                 <ComboBoxItem Content="Phòng CTSV" FontSize="14"/>
                                 <ComboBoxItem Content="Giảng viên" FontSize="14"/>
-                                <ComboBoxItem Content="Sinh viên" FontSize="14"/>
                             </ComboBox>
                         </StackPanel>
                     </Border>

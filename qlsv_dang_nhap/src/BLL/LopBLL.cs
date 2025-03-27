@@ -10,7 +10,15 @@ public class LopBLL
 
     public DataTable getLop()
     {
-        return dal.getLop();
+        try
+        {
+            return dal.getLop();
+        }
+        catch (Exception ex)
+        {
+            return null;
+            throw ex;
+        }
     }
 
     public void saveChange(DataTable dt)

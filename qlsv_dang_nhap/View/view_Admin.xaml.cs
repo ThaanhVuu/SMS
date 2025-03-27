@@ -127,16 +127,32 @@ namespace qlsv_dang_nhap.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(usernameTextBox.Text) && !string.IsNullOrWhiteSpace(roleComboBox.Text))
-            {
-                AddUser(usernameTextBox.Text, roleComboBox.Text, null);
-                ClearInputs();
-            }
-            else
+            if (string.IsNullOrWhiteSpace(usernameTextBox.Text) || string.IsNullOrWhiteSpace(roleComboBox.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
+
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                connection.Open();
+
+                var checkCommand = connection.CreateCommand();
+                checkCommand.CommandText = "SELECT COUNT(*) FROM User WHERE Username = $username";
+                checkCommand.Parameters.AddWithValue("$username", usernameTextBox.Text);
+                long count = (long)checkCommand.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Username đã tồn tại. Vui lòng nhập username khác.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
+
+            AddUser(usernameTextBox.Text, roleComboBox.Text, null);
+            ClearInputs();
         }
+
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {

@@ -142,7 +142,6 @@
                                 <GridViewColumn Header="Mã học phần" Width="80" DisplayMemberBinding="{Binding MaHP}"/>
                                 <GridViewColumn Header="Tên học phần" Width="200" DisplayMemberBinding="{Binding TenHocPhan}"/>
                                 <GridViewColumn Header="Số tín chỉ" Width="80" DisplayMemberBinding="{Binding SoTinChi}"/>
-                                <GridViewColumn Header="Hệ số" Width="80" DisplayMemberBinding="{Binding HeSo}"/>
                                 <GridViewColumn Header="Điểm thành phần" Width="120" DisplayMemberBinding="{Binding DiemThanhPhan}"/>
                                 <GridViewColumn Header="Điểm thi" Width="80" DisplayMemberBinding="{Binding DiemThi}"/>
                                 <GridViewColumn Header="Điểm tổng kết" Width="80" DisplayMemberBinding="{Binding DiemTongKet}"/>

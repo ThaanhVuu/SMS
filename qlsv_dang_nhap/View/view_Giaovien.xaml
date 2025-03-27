@@ -9,31 +9,7 @@
     <Border>
             <TabControl FontSize="16" Background="White">
                 <!--tab xem thong tin-->
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/icon_admin/icons8-student-24.png"
-                               Width="16" Height="16"/>
-                            <TextBlock Text="Thông tin sinh viên"
-                                   FontSize="16" FontFamily="Arial" FontWeight="Bold"/>
-                        </StackPanel>
-                    </TabItem.Header>
-                    <ListView HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="MaSV" Width="Auto"  DisplayMemberBinding="{Binding MaSV}"/>
-                                <GridViewColumn Header="Họ và tên" Width="Auto" DisplayMemberBinding="{Binding HovaTen}"/>
-                                <GridViewColumn Header="Ngày/Tháng/Năm sinh" Width="Auto" DisplayMemberBinding="{Binding Date}"/>
-                                <GridViewColumn Header="Giới tính" Width="Auto" DisplayMemberBinding="{Binding Gioitinh}"/>
-                                <GridViewColumn Header="Ngành" Width="Auto" DisplayMemberBinding="{Binding Nganh}"/>
-                                <GridViewColumn Header="Lớp" Width="Auto" DisplayMemberBinding="{Binding Lop}"/>
-                                <GridViewColumn Header="Người giám hộ" Width="Auto" DisplayMemberBinding="{Binding Nguoigiamho}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </TabItem>
-                <TabItem>
+            <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Images/icon_admin/icons8-book-50.png"
@@ -55,21 +31,23 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Border Grid.Row="0">
-                                    <ListView HorizontalAlignment="Stretch"
+                                    <ListView x:Name="dslopmini" SelectionChanged="lopselection" HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch" Width="200" Height="200">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Lop}"/>
-                                            </GridView>
+                                                <GridViewColumn Header="Lớp" Width="0"  DisplayMemberBinding="{Binding Malop}"/>
+                                            <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Tenlop}"/>
+                                        </GridView>
                                         </ListView.View>
                                     </ListView>
                                 </Border>
                             <Border Grid.Row="1">
-                                <ListView HorizontalAlignment="Stretch"
+                                <ListView x:Name="monhocmini" SelectionChanged="monhocselection" HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch" Width="200" Height="200">
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Header="Môn học" Width="Auto"  DisplayMemberBinding="{Binding Lop}"/>
+                                            <GridViewColumn Header="Môn học" Width="0"  DisplayMemberBinding="{Binding MaHP}"/>
+                                            <GridViewColumn Header="Môn học" Width="Auto"  DisplayMemberBinding="{Binding TenHP}"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
@@ -87,19 +65,7 @@
                         </Grid>
                         </Border>
                     <Border Grid.Column="1">
-                        <ListView HorizontalAlignment="Stretch"
-                                  VerticalAlignment="Stretch">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="Tên Sinh viên" Width="Auto"  DisplayMemberBinding="{Binding TenSV}"/>
-                                    <GridViewColumn Header="Lớp" Width="Auto" DisplayMemberBinding="{Binding Lop}"/>
-                                    <GridViewColumn Header="Tên Môn" Width="Auto" DisplayMemberBinding="{Binding MonHoc}"/>
-                                    <GridViewColumn Header="Điểm quá trình" Width="Auto" DisplayMemberBinding="{Binding ĐiemQT}"/>
-                                    <GridViewColumn Header="Điểm thi" Width="Auto" DisplayMemberBinding="{Binding DiemThi}"/>
-                                    <GridViewColumn Header="Điểm tổng kết" Width="Auto" DisplayMemberBinding="{Binding DiemTK}"/>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+                        <DataGrid x:Name="dssv" AutoGenerateColumns="True" IsReadOnly="False"/>
                     </Border>
                     </Grid>
                 </TabItem>

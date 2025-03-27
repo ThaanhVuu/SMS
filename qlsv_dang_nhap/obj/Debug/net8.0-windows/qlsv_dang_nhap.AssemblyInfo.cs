@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("qlsv_dang_nhap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c88607658ef1b31a490e27fbe04afda210c9ceb")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af011f9abbc84b1281e6bc22e267b0cdb216b2f8")]
->>>>>>> origin/trieu
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a42935406f01d1681462260455f770418579d28")]
 [assembly: System.Reflection.AssemblyProductAttribute("qlsv_dang_nhap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("qlsv_dang_nhap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

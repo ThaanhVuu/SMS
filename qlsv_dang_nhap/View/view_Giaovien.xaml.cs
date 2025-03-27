@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace qlsv_dang_nhap.View
 {
@@ -37,29 +26,51 @@ namespace qlsv_dang_nhap.View
             dtlop = lop.getLop();
             dslopmini.ItemsSource = dtlop.DefaultView;
         }
-        void LoadMonhoc() {
+        void LoadMonhoc()
+        {
             dtmonhoc = monhoc.abc();
             monhocmini.ItemsSource = dtmonhoc.DefaultView;
         }
-        
+
         int malop = 0, mahp = 0;
         void lopselection(object sender, SelectionChangedEventArgs e)
         {
             var selected = dslopmini.SelectedItem as DataRowView;
             malop = Convert.ToInt32(selected["Malop".ToString()]);
-            LoadMonhoc();
+            if (malop != 0 && mahp != 0)
+            {
+                LoadSinhvien(malop, mahp);
+            }
         }
         void monhocselection(object sender, SelectionChangedEventArgs e)
         {
             var selected = monhocmini.SelectedItem as DataRowView;
             mahp = Convert.ToInt32(selected["MaHP".ToString()]);
-            LoadSinhvien();
+            if (malop != 0 && mahp != 0)
+            {
+                LoadSinhvien(malop, mahp);
+            }
         }
-
-        void LoadSinhvien()
+        void LoadSinhvien(int Malop, int mahp)
         {
-            dtsv = sv.getSinhvienByMalopByMaMH(malop, mahp);
+            dtsv = sv.getSinhvienByMalopByMaMH(Malop, mahp);
             dssv.ItemsSource = dtsv.DefaultView;
+        }
+        void luubttn(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                sv.getUpdateBangDiem(dtsv);
+                LoadSinhvien(malop, mahp);
+            }
+            //catch (DBConcurrencyException ex)
+            //{
+            //    MessageBox.Show("Lỗi khi cập nhật điểm cho sinh viên: chỉ có thể cập nhật điểm thi và điểm tổng kết.");
+            //}
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

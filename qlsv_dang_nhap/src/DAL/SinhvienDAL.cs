@@ -7,7 +7,7 @@ public class SinhvienDAL
     public SinhvienDAL() { }
     public DataTable getSinhvien()
     {
-        using(var conn = new SQLiteConnection(connectionString))
+        using (var conn = new SQLiteConnection(connectionString))
         {
             conn.Open();
             var dt = new DataTable();
@@ -59,10 +59,45 @@ public class SinhvienDAL
         var dt = new DataTable();
         using (var conn = new SQLiteConnection(connectionString))
         {
-            var adapter = new SQLiteDataAdapter($"select sv.MaSV, sv.Hoten, mh.TenHP, d.DiemQT, d.DiemThi from sinhvien sv \r\njoin lop l on l.Malop = sv.Malop\r\njoin diem d on d.MaSV = sv.MaSV\r\njoin monhoc mh on mh.MaHP = d.MaHP\r\nwhere l.Malop = {malop} and mh.MaHP = {mahp};", conn);
+            // Thêm d.MaHP và sửa alias diemtong thành DiemTongKet
+            string query = $@"
+        SELECT 
+            d.MaHP,
+            sv.masv, 
+            sv.hoten, 
+            d.DiemQT, 
+            d.DiemThi, 
+            (d.DiemQT * 0.4 + d.DiemThi * 0.6) AS DiemTongKet 
+        FROM diem d 
+        JOIN sinhvien sv ON sv.MaSV = d.MaSV 
+        JOIN monhoc mh ON mh.MaHP = d.MaHP 
+        JOIN lop l ON l.Malop = sv.Malop 
+        WHERE l.Malop = {malop} 
+          AND mh.MaHP = {mahp};";
+
+            var adapter = new SQLiteDataAdapter(query, conn);
             adapter.Fill(dt);
-            return dt ;
-        }        
+            return dt;
+        }
     }
 
+    public void UpdateDiem(DataTable dt)
+    {
+        using (var conn = new SQLiteConnection(connectionString))
+        {
+            conn.Open();
+            string updateSql = "UPDATE diem SET DiemQT = @DiemQT, DiemThi = @DiemThi WHERE MaSV = @MaSV AND MaHP = @MaHP";
+            using (SQLiteCommand updateCommand = new SQLiteCommand(updateSql, conn))
+            {
+                updateCommand.Parameters.Add("@DiemQT", DbType.Double, 0, "DiemQT");
+                updateCommand.Parameters.Add("@DiemThi", DbType.Double, 0, "DiemThi");
+                updateCommand.Parameters.Add("@MaSV", DbType.Int32, 0, "masv"); // Kiểm tra tên cột trong DataTable
+                updateCommand.Parameters.Add("@MaHP", DbType.Int32, 0, "MaHP");
+
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter();
+                adapter.UpdateCommand = updateCommand;
+                adapter.Update(dt);
+            }
+        }
+    }
 }

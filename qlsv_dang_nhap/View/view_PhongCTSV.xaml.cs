@@ -64,6 +64,14 @@ namespace qlsv_dang_nhap.View
             MessageBox.Show("Cập nhật dữ liệu thành công");
             LoadSinhvien();
         }
+        private void drlsv_BeginningEdit2(object sender, DataGridBeginningEditEventArgs e)
+        {
+            // Nếu đang chỉnh sửa cột MaSV, hủy thao tác chỉnh sửa
+            if (e.Column is DataGridTextColumn textColumn && textColumn.Header.ToString() == "MaSV")
+            {
+                e.Cancel = true;
+            }
+        }
         private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
         {
             LoadSinhvien();
@@ -98,8 +106,37 @@ namespace qlsv_dang_nhap.View
             int id = Convert.ToInt32(txtMasv.Text);
             dtdrl = drl.getDRL(id);
             drlsv.ItemsSource = dtdrl.DefaultView;
+            foreach (var column in drlsv.Columns)
+            {
+                // Kiểm tra header hoặc Binding path để xác định cột cần ẩn
+                if (column.Header.ToString() == "MaSV" )
+                {
+                    column.Visibility = Visibility.Collapsed;
+                }
+            }
         }
 
+        private void drlsv_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            // Kiểm tra xem đây có phải dòng mới được thêm vào hay không
+            if (e.EditAction == DataGridEditAction.Commit)
+            {
+                DataRowView rowView = e.Row.Item as DataRowView;
+                if (rowView != null)
+                {
+                    // Gán giá trị cho cột MaSV tự động
+                    rowView["MaSV"] = Convert.ToInt32(txtMasv.Text);
+                }
+            }
+        }
+        private void drlsv_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            string[] readOnlyColumns = { "MaSV", "Hoten", "Ngaysinh", "Gioitinh", "Nguoigiamho" };
+            if (e.Column is DataGridTextColumn textColumn && readOnlyColumns.Contains(textColumn.Header.ToString()))
+            {
+                e.Cancel = true;
+            }
+        }
         private void saveDSDRL(object sender, RoutedEventArgs e)
         {
             try
@@ -142,7 +179,7 @@ namespace qlsv_dang_nhap.View
         {
             try
             {
-                sinhvien.savechange(dtdssv);
+                sinhvien.getUpdateBangDiem(dtdssv);
                 MessageBox.Show("Cập nhật lớp cho sinh viên thành công");
                 LoadLop();
             }

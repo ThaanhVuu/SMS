@@ -30,4 +30,8 @@ public class SinhvienBLL
             throw new Exception();
         }
     }
+    public void getUpdateBangDiem(DataTable dt)
+    {
+        dal.UpdateDiem(dt);
+    }
 }

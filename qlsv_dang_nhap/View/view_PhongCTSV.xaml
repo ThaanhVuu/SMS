@@ -186,7 +186,7 @@
                                         <ColumnDefinition Width="355*"/>
                                         <ColumnDefinition Width="589*"/>
                                     </Grid.ColumnDefinitions>
-                                    <DataGrid x:Name="dssv" AutoGenerateColumns="True" IsReadOnly="False" Grid.ColumnSpan="2" />
+                                    <DataGrid x:Name="dssv" AutoGenerateColumns="True" IsReadOnly="False" Grid.ColumnSpan="2" BeginningEdit="drlsv_BeginningEdit2" />
                                 </Grid>
                             </Border>
                         </Grid>
@@ -256,7 +256,7 @@
                             </Border>
                             <Border Grid.Row="1">
                                 <Grid>
-                                    <DataGrid x:Name="drlsv" AutoGenerateColumns="True" IsReadOnly="False" />
+                                    <DataGrid x:Name="drlsv" AutoGenerateColumns="True" IsReadOnly="False" RowEditEnding="drlsv_RowEditEnding" />
                                 </Grid>
                             </Border>
                         </Grid>
@@ -289,8 +289,8 @@
                                           Width="250" Margin="0,10,0,0">
                                     <ListView.View>
                                         <GridView>
+                                            <GridViewColumn Header="Lớp" Width="auto"  DisplayMemberBinding="{Binding Malop}"/>
                                             <GridViewColumn Header="Lớp" Width="Auto"  DisplayMemberBinding="{Binding Tenlop}"/>
-                                            <GridViewColumn Header="Lớp" Width="0"  DisplayMemberBinding="{Binding Malop}"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
@@ -306,7 +306,7 @@
                     </Border>
                     <Border Grid.Column="1">
                         <Grid>
-                            <DataGrid x:Name="dslop" AutoGenerateColumns="True" IsReadOnly="False" />
+                            <DataGrid x:Name="dslop" AutoGenerateColumns="True" IsReadOnly="False" BeginningEdit="drlsv_BeginningEdit" />
                         </Grid>
                     </Border>
                 </Grid>

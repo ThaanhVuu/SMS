@@ -16,6 +16,8 @@ using System.Windows.Threading;
 using System.Windows.Controls.Primitives;
 using System.Diagnostics;
 using System.Windows.Navigation;
+using qlsv_dang_nhap.srcMVC.controller;
+using qlsv_dang_nhap.srcMVC.model;
 
 namespace qlsv_dang_nhap.View
 {
@@ -178,9 +180,20 @@ namespace qlsv_dang_nhap.View
 
         private void TTCN_click(object sender, RoutedEventArgs e)
         {
-            //string loggedInMaSV = StudentMVC.LoggedInMaSV;
-            //StudentMVC student = StudentRepositoryMVC.GetStudentById(loggedInMaSV);
-            ContentDisplay.Content = new qlsv_dang_nhap.userControl.hscnn_Control();
+            if (string.IsNullOrEmpty(StudentMVC.loggedInUsername))
+            {
+                MessageBox.Show("Vui lòng đăng nhập để xem thông tin");
+                return;
+            }
+
+            var student = StudentRepositoryMVC.GetStudentById(StudentMVC.loggedInUsername);
+            if (student == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin sinh viên");
+                return;
+            }
+
+            ContentDisplay.Content = new qlsv_dang_nhap.userControl.hscnn_Control(student);
         }
         private void kqht_click(object sender, RoutedEventArgs e)
         {
@@ -193,6 +206,10 @@ namespace qlsv_dang_nhap.View
         private void xemMH__click(object sender, RoutedEventArgs e)
         {
             ContentDisplay.Content = new qlsv_dang_nhap.userControl.MH_control();
+        }
+        private void thoat_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 

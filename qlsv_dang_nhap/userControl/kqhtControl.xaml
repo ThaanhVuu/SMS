@@ -39,7 +39,7 @@
                                 <TextBlock Text="Mã sinh viên: "
                                            FontSize="13" FontWeight="Bold"
                                            Margin="20,0,0,0"/>
-                                <TextBlock Text="Ma_sinh_vien"
+                                <TextBlock Text="{Binding MaSinhVien}"
                                            FontSize="13" FontWeight="Bold" Foreground="Red"
                                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -49,7 +49,7 @@
                                 <TextBlock Text="Xếp loại học tập (Hệ 4): "
                                            FontSize="13" FontWeight="Bold"
                                            Margin="10,0,0,0"/>
-                                <TextBlock Text="xlht_he4"
+                                <TextBlock Text="{Binding XepLoaiHe4}"
                                            FontSize="13" FontWeight="Bold" Foreground="Red"
                                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -59,7 +59,7 @@
                                 <TextBlock Text="Xếp loại học tập (Hệ 10): "
                                            FontSize="13" FontWeight="Bold"
                                            Margin="10,0,0,0"/>
-                                <TextBlock Text="xlht_he10"
+                                <TextBlock Text="{Binding XepLoaiHe10}"
                                            FontSize="13" FontWeight="Bold" Foreground="Red"
                                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -78,7 +78,7 @@
                                 <TextBlock Text="TBC Tích lũy (Hệ 4): "
                            FontSize="13" FontWeight="Bold"
                            Margin="20,0,0,0"/>
-                                <TextBlock Text="tbc_he4"
+                                <TextBlock Text="{Binding TBCHe4}"
                            FontSize="13" FontWeight="Bold" Foreground="Red"
                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -88,7 +88,7 @@
                                 <TextBlock Text="TBC Tích lũy (Hệ 10): "
                            FontSize="13" FontWeight="Bold"
                            Margin="10,0,0,0"/>
-                                <TextBlock Text="tbc_he10"
+                                <TextBlock Text="{Binding TBCHe10}"
                            FontSize="13" FontWeight="Bold" Foreground="Red"
                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -98,7 +98,7 @@
                                 <TextBlock Text="Số tín chỉ học tập tích lũy: "
                                            FontSize="13" FontWeight="Bold"
                                            Margin="10,0,0,0"/>
-                                <TextBlock Text="stc "
+                                <TextBlock Text="{Binding TongTinChi}"
                                            FontSize="13" FontWeight="Bold" Foreground="Red"
                                            Margin="10,0,0,0"/>
                             </StackPanel>
@@ -135,17 +135,17 @@
 
                 </Border>
                 <Border Grid.Row="6" BorderBrush="Gray" BorderThickness="1" Padding="5" Margin="10">
-                    <ListView Name="BangDiemListView">
+                    <ListView ItemsSource="{Binding DiemList}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="STT" Width="50" DisplayMemberBinding="{Binding STT}"/>
-                                <GridViewColumn Header="Ký hiệu" Width="80" DisplayMemberBinding="{Binding KyHieu}"/>
+                                <GridViewColumn Header="Mã học phần" Width="80" DisplayMemberBinding="{Binding MaHP}"/>
                                 <GridViewColumn Header="Tên học phần" Width="200" DisplayMemberBinding="{Binding TenHocPhan}"/>
                                 <GridViewColumn Header="Số tín chỉ" Width="80" DisplayMemberBinding="{Binding SoTinChi}"/>
                                 <GridViewColumn Header="Hệ số" Width="80" DisplayMemberBinding="{Binding HeSo}"/>
                                 <GridViewColumn Header="Điểm thành phần" Width="120" DisplayMemberBinding="{Binding DiemThanhPhan}"/>
                                 <GridViewColumn Header="Điểm thi" Width="80" DisplayMemberBinding="{Binding DiemThi}"/>
-                                <GridViewColumn Header="TBCHP" Width="80" DisplayMemberBinding="{Binding TBCHP}"/>
+                                <GridViewColumn Header="Điểm tổng kết" Width="80" DisplayMemberBinding="{Binding DiemTongKet}"/>
                                 <GridViewColumn Header="Điểm số" Width="80" DisplayMemberBinding="{Binding DiemSo}"/>
                                 <GridViewColumn Header="Điểm chữ" Width="80" DisplayMemberBinding="{Binding DiemChu}"/>
                             </GridView>

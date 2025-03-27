@@ -12,14 +12,20 @@ namespace qlsv_dang_nhap.View
     {
         private SinhvienBLL sinhvien = new SinhvienBLL();
         private DRLBLL drl = new DRLBLL();
+        private LopBLL lop = new LopBLL();
+        private HDNKBLL hdnk = new HDNKBLL();
         DataTable dtdssv;
         DataTable dtdrl;
+        DataTable dtlopmini;
+        DataTable dthdnk;
+
         public view_PhongCTSV()
         {
             InitializeComponent();
             LoadSinhvien();
             LoadSinhvienMini();
-        
+            LoadLop();
+            LoadHdnk();
         }
         #region setsearch
         private void txtSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -37,22 +43,18 @@ namespace qlsv_dang_nhap.View
         {
             txtPlaceholder.Visibility = string.IsNullOrEmpty(txtSearch.Text) ? Visibility.Visible : Visibility.Collapsed;
         }
-        private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Chức năng tìm kiếm chưa được triển khai.");
-        }
         private void SearchEnter(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                btnSearchIcon_Click(sender, new RoutedEventArgs());
+                btnSearchIcon_Click(sender, e);
             }
         }
         #endregion
         #region Sinhvien
         private void LoadSinhvien()
         {
-            dtdssv = sinhvien.getSinhvien();
+            dtdssv = sinhvien.searchSV(txtSearch.Text);
             dssv.ItemsSource = dtdssv.DefaultView;
         }
 
@@ -62,6 +64,11 @@ namespace qlsv_dang_nhap.View
             MessageBox.Show("Cập nhật dữ liệu thành công");
             LoadSinhvien();
         }
+        private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
+        {
+            LoadSinhvien();
+        }
+
         #endregion
         #region QLDRL
         private void LoadSinhvienMini()
@@ -74,8 +81,11 @@ namespace qlsv_dang_nhap.View
             if (selected == null) return;
             try
             {
-                txtMasv.Text = selected["MaSV"].ToString();
-                LoadDRL();
+                if (selected["MaSV"] != DBNull.Value) // Kiểm tra giá trị không phải NULL
+                {
+                    txtMasv.Text = selected["MaSV"].ToString();
+                    LoadDRL(); // Chỉ gọi LoadDRL() khi có giá trị hợp lệ
+                }
             }
             catch (Exception ex)
             {
@@ -85,24 +95,74 @@ namespace qlsv_dang_nhap.View
 
         private void LoadDRL()
         {
-            int id = int.Parse(txtMasv.Text);
-            if(id > 0)
-            {
-                dtdrl = drl.getDRL(id);
-                drlsv.ItemsSource = dtdrl.DefaultView;
-            }
+            int id = Convert.ToInt32(txtMasv.Text);
+            dtdrl = drl.getDRL(id);
+            drlsv.ItemsSource = dtdrl.DefaultView;
         }
 
-        private void drlsave(object sender, RoutedEventArgs e)
+        private void saveDSDRL(object sender, RoutedEventArgs e)
         {
             try
             {
-                drl.saveDRL(dtdrl);
-                MessageBox.Show("Cập nhật hoạt động ngoại khóa cho sinh viên thành công");
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Lỗi khi cập nhật hoạt động ngoại khóa cho sinh viên: "+ex.Message);
+                drl.saveChange(dtdrl);
+                MessageBox.Show("Cập nhật điểm rèn luyện thành công");
+                LoadDRL();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật điểm rèn luyện: " + ex.Message);
+            }
+        }
+        #endregion
+        #region LOP
+        private void LoadLop()
+        {
+            dtlopmini = lop.getLop();
+            dslopmini.ItemsSource = dtlopmini.DefaultView;
+        }
+        int malop;
+        void selectionlopmini(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = dslopmini.SelectedItem as DataRowView;
+            if (selected == null) return;
+            try
+            {
+                malop = int.Parse(selected["Malop"].ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn lớp: " + ex.Message);
+            }
+            var dv = new DataView(dtdssv);
+            dv.RowFilter = $"Malop = {malop}";
+            dslop.ItemsSource = dv;
+            //khi chọn lớp, lấy mã lớp và lọc dữ liệu danh sách sinh viên theo mã lớp
+        }
+        void capnhatlop(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                sinhvien.savechange(dtdssv);
+                MessageBox.Show("Cập nhật lớp cho sinh viên thành công");
+                LoadLop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cập nhật lớp cho sinh viên thất bại: " + ex.Message);
+            }
+        }
+        #endregion
+        #region hdnk
+        void LoadHdnk()
+        {
+            dthdnk = hdnk.getHDNK();
+            dshdnk.ItemsSource = dthdnk.DefaultView;
+        }
+        void hdnkUpdate(object sender, RoutedEventArgs e)
+        {
+            hdnk.setHDNK(dthdnk);
+            LoadHdnk();
+            MessageBox.Show("Cập nhật hoạt động ngoại khóa thành công");
         }
         #endregion
     }

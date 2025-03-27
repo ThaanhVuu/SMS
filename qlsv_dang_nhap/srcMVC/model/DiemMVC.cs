@@ -1,67 +1,47 @@
-//namespace qlsv_dang_nhap.srcMVC.model
-//{
-//    public class DiemMVC
-//    {
-//        // Thu?c tính t??ng ?ng v?i các c?t trong b?ng Diem
-//        public string MaSV { get; set; } // Mã sinh viên
-//        public string MaHP { get; set; } // Mã h?c ph?n
-//        public double DiemQT { get; set; } // ?i?m quá trình
-//        public double DiemThi { get; set; } // ?i?m thi
-//        public double DiemTongKet { get; set; } // ?i?m t?ng k?t
+ï»¿namespace qlsv_dang_nhap.srcMVC.model
+{
+    public class DiemMVC
+    {
+        // Thuá»™c tÃ­nh hiá»ƒn thá»‹ trong ListView
+        public int STT { get; set; }
+        public int MaSV { get; set; }
+        public int MaHP { get; set; }
+        //public string KyHieu { get; set; }
+        public string TenHocPhan { get; set; }
+        public int SoTinChi { get; set; }
+        public double HeSo { get; set; } = 1.0;
+        public double DiemThanhPhan { get; set; }
+        public double DiemThi { get; set; }
+        public double DiemTongKet { get; set; }
 
-//        // Thu?c tính tính toán: ?i?m ch?
-//        public string DiemChu
-//        {
-//            get
-//            {
-//                if (DiemTongKet >= 8.5) return "A";
-//                else if (DiemTongKet >= 7.0) return "B";
-//                else if (DiemTongKet >= 5.5) return "C";
-//                else if (DiemTongKet >= 4.0) return "D";
-//                else return "F";
-//            }
-//        }
+        // Thuá»™c tÃ­nh tÃ­nh toÃ¡n
+        public double DiemSo => ConvertDiemToHe4(DiemTongKet);
+        public string DiemChu => ConvertDiemToChu(DiemTongKet);
 
-//        // Thu?c tính tính toán: ?i?m s? (h? 4)
-//        public double DiemSo
-//        {
-//            get
-//            {
-//                switch (DiemChu)
-//                {
-//                    case "A": return 4.0;
-//                    case "B": return 3.0;
-//                    case "C": return 2.0;
-//                    case "D": return 1.0;
-//                    default: return 0.0; // F ho?c các tr??ng h?p khác
-//                }
-//            }
-//        }
+        // Thuá»™c tÃ­nh thá»‘ng kÃª (static)
+        public static double TBCHe4 { get; set; }
+        public static double TBCHe10 { get; set; }
+        public static int TongTinChiDat { get; set; }
+        public static int TongTinChiTatCa { get; set; }
+        public static string XepLoaiHe4 { get; set; }
+        public static string XepLoaiHe10 { get; set; }
 
-//        // Constructor m?c ??nh
-//        public DiemMVC()
-//        {
-//            MaSV = string.Empty;
-//            MaHP = string.Empty;
-//            DiemQT = 0;
-//            DiemThi = 0;
-//            DiemTongKet = 0;
-//        }
+        public static string ConvertDiemToChu(double diem)
+        {
+            if (diem >= 8.5) return "A";
+            if (diem >= 7.0) return "B";
+            if (diem >= 5.5) return "C";
+            if (diem >= 4.0) return "D";
+            return "F";
+        }
 
-//        // Constructor v?i tham s? ?? kh?i t?o ??i t??ng
-//        public DiemMVC(string maSV, string maHP, double diemQT, double diemThi, double diemTongKet)
-//        {
-//            MaSV = maSV;
-//            MaHP = maHP;
-//            DiemQT = diemQT;
-//            DiemThi = diemThi;
-//            DiemTongKet = diemTongKet;
-//        }
-
-//        // Ph??ng th?c ?? hi?n th? thông tin ?i?m
-//        public override string ToString()
-//        {
-//            return $"Mã SV: {MaSV}, Mã HP: {MaHP}, ?i?m QT: {DiemQT}, ?i?m Thi: {DiemThi}, ?i?m TK: {DiemTongKet}, ?i?m Ch?: {DiemChu}, ?i?m S?: {DiemSo}";
-//        }
-//    }
-//}
+        public static double ConvertDiemToHe4(double diem)
+        {
+            if (diem >= 8.5) return 4.0;
+            if (diem >= 7.0) return 3.0;
+            if (diem >= 5.5) return 2.0;
+            if (diem >= 4.0) return 1.0;
+            return 0.0;
+        }
+    }
+}

@@ -13,20 +13,21 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel  Orientation="Horizontal">
-                <TextBlock Text="Mã sinh viên:" FontSize="14" FontWeight="Bold" 
+                <TextBlock Text="Các môn học:" FontSize="14" FontWeight="Bold" 
                            Margin="10,10,0,0"/>
-                <TextBlock Text="Mã sinh viên" FontSize="14" FontWeight="Bold" 
+                <TextBlock Text=" " FontSize="14" FontWeight="Bold" 
                             Margin="10,10,0,0" Foreground="Red"/>
             </StackPanel>
             <Border Grid.Row="1">
-                <ListView HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch">
+                <ListView ItemsSource="{Binding MonHocList}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="STT" Width="Auto"  DisplayMemberBinding="{Binding STT}"/>
-                            <GridViewColumn Header="Mã môn học" Width="Auto" DisplayMemberBinding="{Binding MaMH}"/>
-                            <GridViewColumn Header="Tên môn học" Width="Auto" DisplayMemberBinding="{Binding TenMH}"/>
-                            <GridViewColumn Header="Số tín chỉ" Width="Auto" DisplayMemberBinding="{Binding SoTinchi}"/>
+                            <GridViewColumn Header="Mã môn học" Width="Auto" DisplayMemberBinding="{Binding MaHP}"/>
+                            <GridViewColumn Header="Tên môn học" Width="Auto" DisplayMemberBinding="{Binding TenHP}"/>
+                            <GridViewColumn Header="Số tín chỉ" Width="Auto" DisplayMemberBinding="{Binding SoTinChi}"/>
+							<GridViewColumn Header="Học kỳ" Width="Auto" DisplayMemberBinding="{Binding Hocky}"/>
+							<GridViewColumn Header="Năm học" Width="Auto" DisplayMemberBinding="{Binding Namhoc}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -9,6 +9,10 @@ public class DRLBLL
     public DataTable getDRL(int id)
     {
         return dal.getDRLSV(id);
+    } 
+    public void saveChange(DataTable dt)
+    {
+        dal.savechange(dt);
     }
 
     public void saveDRL(DataTable dt)

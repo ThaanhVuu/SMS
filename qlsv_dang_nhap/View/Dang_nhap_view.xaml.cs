@@ -3,6 +3,8 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using qlsv_dang_nhap.srcMVC.model;
+using qlsv_dang_nhap.srcMVC.controller;
 
 namespace qlsv_dang_nhap.View
 {
@@ -91,15 +93,26 @@ namespace qlsv_dang_nhap.View
 
         private void OpenRoleSpecificWindow(string role)
         {
+            string username = txtUser.Text;
+            StudentMVC.loggedInUsername = username;
             switch (role)
             {
                 case "0":
                     new view_Admin().Show();
                     break;
+                case "Admin":
+                    new view_Admin().Show();
+                    break;
                 case "1":
                     new view_PhongCTSV().Show();
                     break;
+                case "Phòng CTSV":
+                    new view_PhongCTSV().Show();
+                    break;
                 case "2":
+                    new view_Giaovien().Show();
+                    break;
+                case "Giảng viên":
                     new view_Giaovien().Show();
                     break;
                 case "3":

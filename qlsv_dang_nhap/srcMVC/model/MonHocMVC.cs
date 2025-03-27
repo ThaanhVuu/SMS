@@ -1,38 +1,57 @@
-//namespace qlsv_dang_nhap.srcMVC.model
-//{
-//    public class MonHocMVC
-//    {
-//        // Thu?c tính t??ng ?ng v?i các c?t trong b?ng MonHoc
-//        public string MaHP { get; set; } // Mã h?c ph?n
-//        public string TenHP { get; set; } // Tên h?c ph?n
-//        public string Sotinchi { get; set; } // S? tín ch?
-//        public string Hocky { get; set; } // H?c k?
-//        public string Namhoc { get; set; } // N?m h?c
+using System.ComponentModel;
 
-//        // Constructor m?c ??nh
-//        public MonHocMVC()
-//        {
-//            MaHP = string.Empty;
-//            TenHP = string.Empty;
-//            Sotinchi = string.Empty;
-//            Hocky = string.Empty;
-//            Namhoc = string.Empty;
-//        }
+namespace qlsv_dang_nhap.srcMVC.model
+{
+    public class MonHocMVC : INotifyPropertyChanged
+    {
+        private int _stt;
+        private string _maHP;
+        private string _tenHP;
+        private int _soTinChi;
+        private string _hocky;
+        private string _namhoc;
 
-//        // Constructor v?i tham s? ?? kh?i t?o ??i t??ng
-//        public MonHocMVC(string maHP, string tenHP, string sotinchi, string hocky, string namhoc)
-//        {
-//            MaHP = maHP;
-//            TenHP = tenHP;
-//            Sotinchi = sotinchi;
-//            Hocky = hocky;
-//            Namhoc = namhoc;
-//        }
+        public int STT
+        {
+            get => _stt;
+            set { _stt = value; OnPropertyChanged(nameof(STT)); }
+        }
 
-//        // Ph??ng th?c ?? hi?n th? thông tin môn h?c
-//        public override string ToString()
-//        {
-//            return $"Mã HP: {MaHP}, Tên HP: {TenHP}, S? tín ch?: {Sotinchi}, H?c k?: {Hocky}, N?m h?c: {Namhoc}";
-//        }
-//    }
-//}
+        public string MaHP
+        {
+            get => _maHP;
+            set { _maHP = value; OnPropertyChanged(nameof(MaHP)); }
+        }
+
+        public string TenHP
+        {
+            get => _tenHP;
+            set { _tenHP = value; OnPropertyChanged(nameof(TenHP)); }
+        }
+
+        public int SoTinChi
+        {
+            get => _soTinChi;
+            set { _soTinChi = value; OnPropertyChanged(nameof(SoTinChi)); }
+        }
+
+        public string Hocky
+        {
+            get => _hocky;
+            set { _hocky = value; OnPropertyChanged(nameof(Hocky)); }
+        }
+
+        public string Namhoc
+        {
+            get => _namhoc;
+            set { _namhoc = value; OnPropertyChanged(nameof(Namhoc)); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}

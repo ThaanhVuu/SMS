@@ -1,71 +1,76 @@
-//using System;
-//using System.Collections.Generic;
-//using Microsoft.Data.Sqlite;
-//using System.Windows;
-//using System.Configuration;
-//using qlsv_dang_nhap.srcMVC.view;
-//using qlsv_dang_nhap.srcMVC.model;
+ï»¿using System;
+using System.Collections.Generic;
+using Microsoft.Data.Sqlite;
+using System.Windows;
+using qlsv_dang_nhap.srcMVC.model;
 
-//namespace qlsv_dang_nhap.srcMVC.controller
-//{
-//    public class MonHocRepositoryMVC
-//    {
-//        private static string connectionString = ConfigurationManager.ConnectionStrings["sms"].ConnectionString;
+namespace qlsv_dang_nhap.srcMVC.controller
+{
+    public static class MonHocRepositoryMVC
+    {
+        private const string ConnectionString = "Data Source=sms.db";
 
-//        // Ph??ng th?c l?y danh sách môn h?c c?a sinh viên d?a trên MaSV
-//        internal static List<MonHocMVC> GetMonHocByMaSV(string loggedInUsername)
-//        {
-//            List<MonHocMVC> monHocList = new List<MonHocMVC>();
+        public static List<MonHocMVC> GetMonHocByMaSV(string username)
+        {
+            var monHocList = new List<MonHocMVC>();
+            int stt = 1;
 
-//            // L?y MaSV t? b?ng User
-//            int maSV = StudentRepositoryMVC.GetMaSVByUsername(loggedInUsername);
-//            if (maSV == -1)
-//            {
-//                MessageBox.Show("Không tìm th?y MaSV t??ng ?ng v?i Username.");
-//                return monHocList;
-//            }
+            try
+            {
+                using (var connection = new SqliteConnection(ConnectionString))
+                {
+                    connection.Open();
+                    var maSV = GetMaSVFromUsername(connection, username);
 
-//            try
-//            {
-//                using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-//                {
-//                    conn.Open();
-//                    string query = @"
-//                        SELECT 
-//                            MonHoc.MaHP, 
-//                            MonHoc.TenHP, 
-//                            MonHoc.Sotinchi, 
-//                            MonHoc.Hocky, 
-//                            MonHoc.Namhoc
-//                        FROM Diem
-//                        INNER JOIN MonHoc ON Diem.MaHP = MonHoc.MaHP
-//                        WHERE Diem.MaSV = @MaSV";
-//                    using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-//                    {
-//                        cmd.Parameters.AddWithValue("@MaSV", maSV);
-//                        using (SQLiteDataReader reader = cmd.ExecuteReader())
-//                        {
-//                            while (reader.Read())
-//                            {
-//                                MonHocMVC monHoc = new MonHocMVC
-//                                {
-//                                    MaHP = reader["MaHP"]?.ToString(),
-//                                    TenHP = reader["TenHP"]?.ToString(),
-//                                    Sotinchi = reader["Sotinchi"]?.ToString(),
-//                                    Hocky = reader["Hocky"]?.ToString(),
-//                                    Namhoc = reader["Namhoc"]?.ToString()
-//                                };
-//                                monHocList.Add(monHoc);
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            catch (Exception ex)
-//            {
-//                MessageBox.Show($"L?i truy v?n CSDL: {ex.Message}");
-//            }
-//            return monHocList;
-//        }
-//    }
-//}
+                    if (maSV <= 0) return monHocList;
+
+                    const string query = @"
+                        SELECT MonHoc.MaHP, MonHoc.TenHP, MonHoc.Sotinchi, MonHoc.Hocky, MonHoc.Namhoc
+                        FROM Diem
+                        JOIN MonHoc ON Diem.MaHP = MonHoc.MaHP
+                        WHERE Diem.MaSV = @MaSV
+                        ORDER BY MonHoc.Namhoc, MonHoc.Hocky, MonHoc.TenHP";
+
+                    using (var command = new SqliteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaSV", maSV);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                monHocList.Add(new MonHocMVC
+                                {
+                                    STT = stt++,
+                                    MaHP = reader["MaHP"].ToString(),
+                                    TenHP = reader["TenHP"].ToString(),
+                                    SoTinChi = Convert.ToInt32(reader["Sotinchi"]),
+                                    Hocky = reader["Hocky"].ToString(),
+                                    Namhoc = reader["Namhoc"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lá»—i khi táº£i mÃ´n há»c: {ex.Message}", "Lá»—i",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return monHocList;
+        }
+
+        private static int GetMaSVFromUsername(SqliteConnection connection, string username)
+        {
+            const string query = "SELECT MaSV FROM User WHERE Username = @Username";
+            using (var command = new SqliteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Username", username);
+                var result = command.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 0;
+            }
+        }
+    }
+}

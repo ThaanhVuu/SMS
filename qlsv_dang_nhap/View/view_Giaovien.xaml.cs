@@ -63,14 +63,14 @@ namespace qlsv_dang_nhap.View
                 sv.getUpdateBangDiem(dtsv);
                 LoadSinhvien(malop, mahp);
             }
-            //catch (DBConcurrencyException ex)
-            //{
-            //    MessageBox.Show("Lỗi khi cập nhật điểm cho sinh viên: chỉ có thể cập nhật điểm thi và điểm tổng kết.");
-            //}
-            catch (Exception ex) 
+            catch (DBConcurrencyException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi khi cập nhật điểm cho sinh viên: chỉ có thể cập nhật điểm thi và điểm tổng kết.");
             }
+            //catch (Exception ex) 
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

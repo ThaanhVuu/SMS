@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.Common;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -57,20 +58,20 @@ namespace qlsv_dang_nhap.View
             dtdssv = sinhvien.searchSV(txtSearch.Text);
             dssv.ItemsSource = dtdssv.DefaultView;
         }
+        private void drlsv_BeginningEdit2(object sender, DataGridBeginningEditEventArgs e)
+        {
+            string[] readOnlyColumns = { "Malop", "Tenlop", "CTDT"};
+            if (e.Column is DataGridTextColumn textColumn && readOnlyColumns.Contains(textColumn.Header.ToString()))
+            {
+                e.Cancel = true;
+            }
+        }
 
         private void themsinhvien_click(object sender, RoutedEventArgs e)
         {
             sinhvien.savechange(dtdssv);
             MessageBox.Show("Cập nhật dữ liệu thành công");
             LoadSinhvien();
-        }
-        private void drlsv_BeginningEdit2(object sender, DataGridBeginningEditEventArgs e)
-        {
-            // Nếu đang chỉnh sửa cột MaSV, hủy thao tác chỉnh sửa
-            if (e.Column is DataGridTextColumn textColumn && textColumn.Header.ToString() == "MaSV")
-            {
-                e.Cancel = true;
-            }
         }
         private void btnSearchIcon_Click(object sender, RoutedEventArgs e)
         {
@@ -100,6 +101,7 @@ namespace qlsv_dang_nhap.View
                 MessageBox.Show("loi khi chon sinh vien: " + ex.Message);
             }
         }
+      
 
         private void LoadDRL()
         {
@@ -129,14 +131,7 @@ namespace qlsv_dang_nhap.View
                 }
             }
         }
-        private void drlsv_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            string[] readOnlyColumns = { "MaSV", "Hoten", "Ngaysinh", "Gioitinh", "Nguoigiamho" };
-            if (e.Column is DataGridTextColumn textColumn && readOnlyColumns.Contains(textColumn.Header.ToString()))
-            {
-                e.Cancel = true;
-            }
-        }
+       
         private void saveDSDRL(object sender, RoutedEventArgs e)
         {
             try
@@ -158,6 +153,14 @@ namespace qlsv_dang_nhap.View
             dslopmini.ItemsSource = dtlopmini.DefaultView;
         }
         int malop;
+        private void drlsv_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            string[] readOnlyColumns = { "MaSV", "Hoten", "Ngaysinh", "Gioitinh", "Nguoigiamho" };
+            if (e.Column is DataGridTextColumn textColumn && readOnlyColumns.Contains(textColumn.Header.ToString()))
+            {
+                e.Cancel = true;
+            }
+        }
         void selectionlopmini(object sender, SelectionChangedEventArgs e)
         {
             var selected = dslopmini.SelectedItem as DataRowView;

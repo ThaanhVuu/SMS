@@ -34,13 +34,16 @@ public class SinhvienDAL
             var dt = new DataTable();
             conn.Open();
             string query = @"
-            SELECT * FROM Sinhvien 
+            SELECT sv.*, l.Tenlop, l.CTDT FROM Sinhvien sv
+            join lop l on l.malop = sv.malop
             WHERE 
-                CAST(MaSV AS TEXT) LIKE @search 
-                OR CAST(Malop AS TEXT) LIKE @search 
-                OR Hoten LIKE @search 
-                OR Gioitinh LIKE @search 
-                OR Nguoigiamho LIKE @search";
+                CAST(sv.MaSV AS TEXT) LIKE @search 
+                OR CAST(l.Malop AS TEXT) LIKE @search 
+                OR l.Tenlop LIKE @search 
+                OR l.CTDT LIKE @search 
+                OR sv.Hoten LIKE @search 
+                OR sv.Gioitinh LIKE @search 
+                OR sv.Nguoigiamho LIKE @search";
 
             using (var cmd = new SQLiteCommand(query, conn))
             {
